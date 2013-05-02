@@ -86,4 +86,8 @@ public class Main extends Canvas implements Runnable {
 		}
 	}
 
+<<<<<<< HEAD:Barba/src/barba/Main.java
 }
+=======
+
+>>>>>>> aa:Main.java
