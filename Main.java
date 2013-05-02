@@ -87,6 +87,5 @@ public class Main extends Canvas implements Runnable {
 			delta = System.currentTimeMillis() - now;
 		}
 	}
-}
 
-HAL≈≈ BG2!!
+}
