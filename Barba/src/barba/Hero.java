@@ -17,7 +17,6 @@ public class Hero extends DynamicObject{
 		g.setColor(Color.YELLOW);
 		g.drawOval(5, 5, 5, 5);
 		
-	
 	}
 	
 	public void update() {

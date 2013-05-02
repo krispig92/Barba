@@ -20,7 +20,6 @@ public class Main extends Canvas implements Runnable {
 	
 	private Hero hero;
 	
-	
 
 	public Main() {
 		
@@ -46,7 +45,6 @@ public class Main extends Canvas implements Runnable {
 	
 	private void update(float delta){
 		hero.update();
-		
 	}
 	
 	
@@ -87,6 +85,5 @@ public class Main extends Canvas implements Runnable {
 			delta = System.currentTimeMillis() - now;
 		}
 	}
-}
 
-HAL≈≈ BG2!!
+}
