@@ -18,6 +18,8 @@ public class Main extends Canvas implements Runnable {
 	
 	private boolean running = false;
 	
+	private Hero hero;
+	
 	
 
 	public Main() {
@@ -26,6 +28,7 @@ public class Main extends Canvas implements Runnable {
 		setPreferredSize(getMinimumSize());
 		setMaximumSize(getMinimumSize());
 		
+		hero = new Hero(10, 10, 10, 10, 10, 10, 10, 10);
 		
 	}
 
@@ -36,13 +39,13 @@ public class Main extends Canvas implements Runnable {
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_WIDTH);
 		
-
+		hero.render(g);
 		
 		bs.show();
 	}
 	
 	private void update(float delta){
-		
+		hero.update();
 		
 	}
 	
