@@ -12,7 +12,8 @@ public class Controller implements KeyListener, MouseListener, MouseMotionListen
 	public float mouseX, mouseY;
 	public boolean[] characters = new boolean[255];
 	public boolean hoppa = true;
-	private boolean pressed = false;
+	public boolean pressed = false;
+	
 	public Controller(Component parent) {
 		// Sätt kontrollern till lyssnare på en komponent
 		parent.addMouseListener(this);
@@ -60,16 +61,24 @@ public class Controller implements KeyListener, MouseListener, MouseMotionListen
 	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		if(!pressed){
-			characters[arg0.getKeyCode()] = true;
-			pressed = true;
+		
+		characters[arg0.getKeyCode()] = true;
+		if(arg0.getKeyCode() == KeyEvent.VK_SPACE){
+			if(pressed){
+				characters[arg0.getKeyCode()] = false;
+			}				
 		}
-	}
+}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		characters[arg0.getKeyCode()] = false;
-		hoppa = true;
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_SPACE){
+						
+			pressed = false;
+		}
+		
 	}
 
 	@Override
