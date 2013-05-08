@@ -4,7 +4,7 @@ public class DynamicObject {
 	
 	public double x, y, width, height, speedX, speedY, netForceX, netForceY;
 	
-	public double gravity = 10;
+	public double gravity = 20;
 	
 	
 	public DynamicObject(double x, double y, double width, double height, double speedX, double speedY, 

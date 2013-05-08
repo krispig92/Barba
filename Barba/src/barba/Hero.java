@@ -13,6 +13,8 @@ public class Hero extends DynamicObject{
 	private Image heroImage;
 	
 	
+	
+
 	public Hero(double x, double y, double width, double height, double speedX, double speedY, 
 											double netForceX, double netForceY) {
 		
@@ -56,23 +58,7 @@ public class Hero extends DynamicObject{
 		setSpeedY(getSpeedY()+gravity*delta);
 		
 		
-		if(y > 538){
-			speedY = 0;
-			y = 538;
-		}
 		
-		if(y < 0){
-			speedY = 0;
-			y = 0;
-		}
-		
-		if(x < 0){
-			x = 0;
-		}
-		
-		if(x > 755){
-			x = 755;
-		}
 		
 		rightButton(controller, delta);
 		
@@ -88,6 +74,24 @@ public class Hero extends DynamicObject{
 		
 		x += getSpeedX();
 		y += getSpeedY();
+		
+		if(y > 538){
+			speedY = 0;
+			y = 538;
+		}
+		
+		if(y < 10){
+			speedY = 0;
+			y = 10;
+		}
+		
+		if(x < 10){
+			x = 10;
+		}
+		
+		if(x > 755){
+			x = 755;
+		}
 	}
 	public boolean checkHit(){
 		
@@ -132,5 +136,9 @@ public class Hero extends DynamicObject{
 		if(controller.characters[KeyEvent.VK_RIGHT]){
 			setSpeedX(3);
 		}
+	}
+	
+	public Image getHeroImage() {
+		return heroImage;
 	}
 }

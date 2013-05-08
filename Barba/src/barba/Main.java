@@ -16,7 +16,7 @@ public class Main extends Canvas implements Runnable {
 	private static final int WINDOW_WIDTH = 800; 
 	private static final int WINDOW_HEIGHT = 600;
 	
-	private boolean isOccupied[][] = new boolean[WINDOW_WIDTH][WINDOW_HEIGHT];
+	private boolean isOccupied[][] = new boolean[WINDOW_WIDTH+100][WINDOW_HEIGHT+100];
 	private boolean running = false;
 	
 	private Hero hero;
@@ -32,7 +32,7 @@ public class Main extends Canvas implements Runnable {
 		
 		controller = new Controller(this);
 		hero = new Hero(10, 10, 10, 10, 10, 10, 10, 10);
-		box = new Box(100, 100, 50, 50);
+		box = new Box(100, 550, 200, 50);
 		addBoxToArray(box);					//lägger till koordinater till array
 		
 	}
@@ -54,6 +54,7 @@ public class Main extends Canvas implements Runnable {
 	
 	private void update(double delta){
 		hero.update(delta, controller);
+			
 	}
 	
 	
@@ -85,7 +86,7 @@ public class Main extends Canvas implements Runnable {
 			long now = System.currentTimeMillis();
 			update(delta);
 			render();
-			System.out.println(16-delta);
+//			System.out.println(16-delta);
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
@@ -96,26 +97,52 @@ public class Main extends Canvas implements Runnable {
 	}
 	
 	public void addBoxToArray(Box box){
-		for (int i = box.getX(); i < box.getWidth(); i++) {
-			for (int j = box.getY(); j < box.getHeight(); j++) {
+		System.out.println("HÄR "+box.getY());
+	
+		for (int i = box.getX(); i < box.getX()+box.getWidth(); i++) {
+			for (int j = box.getY(); j < box.getY()+box.getHeight(); j++) {
 				isOccupied[i][j] = true;
 			}
 		}
 	}
 	
 	
-//	public void heroHitTest(){
+	public void heroHitTest(){
 		int width = 0;
-		width = (int)(hero.getWidth()+hero.getX());
-		width += hero.x; 
-		int height = (int)(hero.getHeight()+hero.getY());
-		width += hero.y;
+		int height = 0;
+//		width = (int)(hero.getWidth()+hero.getX());
+//		int height = (int)(hero.getHeight()+hero.getY());
 		
+//		int test = 0;
+//		for (int i = 0; i < WINDOW_WIDTH; i++) {
+//			for (int j = 0; j < WINDOW_HEIGHT; j++) {
+//				
+//				if(!isOccupied[i][j]){
+////					System.out.println("i= "+i+" j=" +j);
+//					test++;
+//				}
+//			}
+//		}
+//		System.out.println("HÄR" +test);
+		
+//		System.out.println(width);
+		width = (int)hero.x;
+		height = (int)hero.y;		
+		
+		System.out.println("HÄR!"+hero.getHeroImage().getHeight(null));
+		System.out.println(height);
 		System.out.println(width);
+		System.out.println(isOccupied[299][547]);
+//		System.out.println((int)hero.getHeight());
+		//Check vänster
+		if(isOccupied[width][height] || isOccupied[width][height+hero.getHeroImage().getHeight(null)]){
+			hero.setX(hero.getX()+3);
+		}
+		//Check under
+		width = (int)hero.x;
 		
-		if(isOccupied[(int)hero.getX()][(int)hero.getY()] || isOccupied[width][height]){
-			hero.setX(hero.getX()-10);
+		if(isOccupied[width+hero.getHeroImage().getWidth(null)][height+hero.getHeroImage().getHeight(null)]){
+			hero.setY(hero.getY()-10);
 		}
 	}
-
 }
