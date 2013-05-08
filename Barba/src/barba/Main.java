@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 import java.awt.Canvas;
 
-
+//hej 2 kommentarer kommentare
 public class Main extends Canvas implements Runnable {
 	
 	private static final int WINDOW_WIDTH = 800; 
@@ -25,7 +25,7 @@ public class Main extends Canvas implements Runnable {
 	
 
 	public Main() {
-		
+		//Skriver i main
 		setMinimumSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
 		setPreferredSize(getMinimumSize());
 		setMaximumSize(getMinimumSize());
@@ -33,7 +33,7 @@ public class Main extends Canvas implements Runnable {
 		controller = new Controller(this);
 		hero = new Hero(10, 10, 10, 10, 10, 10, 10, 10);
 		box = new Box(100, 550, 200, 50);
-		addBoxToArray(box);					//lägger till koordinater till array
+		addBoxToArray(box);					//lï¿½gger till koordinater till array
 		
 	}
 
@@ -97,7 +97,7 @@ public class Main extends Canvas implements Runnable {
 	}
 	
 	public void addBoxToArray(Box box){
-		System.out.println("HÄR "+box.getY());
+		System.out.println("Hï¿½R "+box.getY());
 	
 		for (int i = box.getX(); i < box.getX()+box.getWidth(); i++) {
 			for (int j = box.getY(); j < box.getY()+box.getHeight(); j++) {
@@ -123,18 +123,18 @@ public class Main extends Canvas implements Runnable {
 //				}
 //			}
 //		}
-//		System.out.println("HÄR" +test);
+//		System.out.println("Hï¿½R" +test);
 		
 //		System.out.println(width);
 		width = (int)hero.x;
 		height = (int)hero.y;		
 		
-		System.out.println("HÄR!"+hero.getHeroImage().getHeight(null));
+		System.out.println("Hï¿½R!"+hero.getHeroImage().getHeight(null));
 		System.out.println(height);
 		System.out.println(width);
 		System.out.println(isOccupied[299][547]);
 //		System.out.println((int)hero.getHeight());
-		//Check vänster
+		//Check vï¿½nster
 		if(isOccupied[width][height] || isOccupied[width][height+hero.getHeroImage().getHeight(null)]){
 			hero.setX(hero.getX()+3);
 		}
